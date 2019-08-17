@@ -28,7 +28,7 @@ class UserController extends Controller
 
     public function login(Request $request){
 
-        return $request;
+        return response()->json($request, 200);
         /*$credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
