@@ -60,11 +60,7 @@
             "@php artisan key:generate --ansi"
         ],
         "post-install-cmd": [
-             "@php artisan optimize",
-             "@chmod -R 777 public/",
-             "@chmod -R 777 storage/",
-             "@chmod -R 777 storage/logs/",
-             "@chmod -R 775 vendor/*"
+             "@php artisan optimize"
          ]
     }
 }
