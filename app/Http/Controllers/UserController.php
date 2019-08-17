@@ -28,7 +28,9 @@ class UserController extends Controller
 
     public function login(Request $request){
 
-        $credentials = $request->only('email', 'password');
+        $json = json_decode($request);
+        return response()->json(['token' => $json->email], 200);
+      /*  $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
             // Authentication passed...
@@ -39,7 +41,7 @@ class UserController extends Controller
             ])->save();
 
             return response()->json(['token' => $token], 200);
-        }
+        }*/
     }
 
     /**
