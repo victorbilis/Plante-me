@@ -26,6 +26,21 @@ class UserController extends Controller
         //
     }
 
+    public function login(Request $request){
+        $credentials = $request->only('email', 'password');
+
+        if (Auth::attempt($credentials)) {
+            // Authentication passed...
+            $token = Str::random(60);
+
+            Auth::user()->forceFill([
+                'api_token' => hash('sha256', $token),
+            ])->save();
+
+            return ['token' => $token];
+        }
+    }
+
     /**
      * Store a newly created resource in storage.
      *

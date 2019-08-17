@@ -11,8 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::prefix('api')->group(function () {
+  Route::post('user/login', 'UserController@login');
 });
 
 Auth::routes();
