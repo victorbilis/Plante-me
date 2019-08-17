@@ -12,7 +12,8 @@
 */
 
 Route::prefix('api')->group(function () {
-  Route::get('/user/login/{id}', 'UserController@login');
+  Route::post('/user/login', 'UserController@login');
+  Route::post('/user/store', 'UserController@store');
 });
 
 Auth::routes();

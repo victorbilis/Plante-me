@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class UserController extends Controller
 {
@@ -26,12 +27,9 @@ class UserController extends Controller
         //
     }
 
-    public function login($id){
+    public function login(String $json){
 
-        //$json = json_decode($request);
-        //$data = array('token' => 'teste');
-        return response()->json(['token' => $id], 200);
-      /*  $credentials = $request->only('email', 'password');
+        $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
             // Authentication passed...
@@ -42,7 +40,7 @@ class UserController extends Controller
             ])->save();
 
             return response()->json(['token' => $token], 200);
-        }*/
+        }
     }
 
     /**
@@ -53,7 +51,11 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $user = new User();
+      $user->fill($request->all());
+      $user->save();
+
+      return response()->json($user, 201);
     }
 
     /**
