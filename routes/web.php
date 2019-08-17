@@ -11,6 +11,14 @@
 |
 */
 
+Route::group(array('prefix' => 'api'), function()
+{
+  Route::resource('users', 'UserController');
+  Route::prefix('admin')->group(function () {
+    Route::post('users','UserController@login');
+});
+});
+
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('api');
 });
