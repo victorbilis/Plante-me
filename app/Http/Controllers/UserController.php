@@ -30,7 +30,7 @@ class UserController extends Controller
 
         //$json = json_decode($request);
         //$data = array('token' => 'teste');
-        return $id;
+        return response()->json(['token' => $id], 200);
       /*  $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
