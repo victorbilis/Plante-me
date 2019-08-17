@@ -22,5 +22,6 @@ class VerifyCsrfToken extends Middleware
       'shows/*',
   'episode/*',
   'genre/*',
+  'stripe/*',
     ];
 }
