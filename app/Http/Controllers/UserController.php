@@ -28,8 +28,7 @@ class UserController extends Controller
 
     public function login(Request $request){
 
-        return response()->json($request, 200);
-        /*$credentials = $request->only('email', 'password');
+        $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
             // Authentication passed...
@@ -39,8 +38,8 @@ class UserController extends Controller
                 'api_token' => hash('sha256', $token),
             ])->save();
 
-            return ['token' => $token];
-        }*/
+            return response()->json(['token' => $token], 200);
+        }
     }
 
     /**
