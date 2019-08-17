@@ -26,11 +26,11 @@ class UserController extends Controller
         //
     }
 
-    public function login(Request $request){
+    public function login($id){
 
         //$json = json_decode($request);
-        $data = array('token' => 'teste');
-        return response()->json($data, 200);
+        //$data = array('token' => 'teste');
+        return $id;
       /*  $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {

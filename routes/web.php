@@ -12,7 +12,7 @@
 */
 
 Route::prefix('api')->group(function () {
-  Route::post('/user/login', 'UserController@login');
+  Route::get('/user/login/{id}', 'UserController@login');
 });
 
 Auth::routes();
