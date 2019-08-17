@@ -28,8 +28,8 @@ class UserController extends Controller
 
     public function login(Request $request){
 
-        $json = json_decode($request);
-        return response()->json(['token' => $json->email], 200);
+        //$json = json_decode($request);
+        return response()->json(['token' => 'teste'], 200);
       /*  $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
