@@ -22,3 +22,7 @@ Route::group(array('prefix' => 'api'), function()
 Route::get('/', function () {
     return redirect('api');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
